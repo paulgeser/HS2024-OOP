@@ -17,6 +17,7 @@ package ch.hslu.oop;
 
 import ch.hslu.oop.sw03.Iteration;
 import ch.hslu.oop.sw05.DemoSw5;
+import ch.hslu.oop.sw06.DemoShape;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -55,7 +56,10 @@ public final class Main {
         linePoint.getP1().setX(100);
         LOGGER.info(linePoint.getP1().getX());*/
 
-        DemoSw5 demo = new DemoSw5();
-        demo.runDemo();
+        /*DemoSw5 demo = new DemoSw5();
+        demo.runDemo();*/
+
+        DemoShape demoShape = new DemoShape();
+        demoShape.runDemo();
     }
 }
