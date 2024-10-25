@@ -3,7 +3,7 @@ package ch.hslu.oop.sw05;
 public abstract class ChemicalElement {
     protected String name;
 
-    public ChemicalElement(String name) {
+    public ChemicalElement(final String name) {
         this.name = name;
     }
 
@@ -13,7 +13,7 @@ public abstract class ChemicalElement {
 
     public abstract String getStateOfMatter(double temperature);
 
-    protected String evaluateState(double temperature, double freezingPoint, double boilingPoint) {
+    protected String evaluateState(final double temperature, final double freezingPoint, final double boilingPoint) {
         if (temperature <= freezingPoint) {
             return "Solid";
         } else if (temperature < boilingPoint) {

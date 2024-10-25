@@ -10,7 +10,7 @@ public class Oxygen extends ChemicalElement {
     }
 
     @Override
-    public String getStateOfMatter(double temperature) {
+    public String getStateOfMatter(final double temperature) {
         return this.evaluateState(temperature, this.freezingPoint, this.boilingPoint);
     }
 }

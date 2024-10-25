@@ -4,7 +4,7 @@ public class Square extends Shape {
 
     private int length;
 
-    public Square(int x, int y, int length) {
+    public Square(final int x, final int y, final int length) {
         super(x, y);
         this.length = length;
     }
@@ -13,7 +13,7 @@ public class Square extends Shape {
         return length;
     }
 
-    public void setLength(int length) {
+    public void setLength(final int length) {
         this.length = length;
     }
 

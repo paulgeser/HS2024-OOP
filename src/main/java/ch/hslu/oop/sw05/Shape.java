@@ -5,12 +5,12 @@ public abstract class Shape {
     private int x;
     private int y;
 
-    public Shape(int x, int y) {
+    public Shape(final int x, final int y) {
         this.x = x;
         this.y = y;
     }
 
-    public void move (int newX, int newY) {
+    public void move (final int newX, final int newY) {
         this.x = newX;
         this.y = newY;
     }
