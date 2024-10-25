@@ -12,13 +12,13 @@ public abstract class ChemicalElement {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
-    protected String evaluateState(final double temperature) {
-        if (temperature <= freezingPoint) {
+    public String evaluateState(final double temperature) {
+        if (temperature <= this.freezingPoint) {
             return "Solid";
-        } else if (temperature < boilingPoint) {
+        } else if (temperature < this.boilingPoint) {
             return "Liquid";
         } else {
             return "Gas";

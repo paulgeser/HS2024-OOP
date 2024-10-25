@@ -6,7 +6,7 @@ public class Square extends Shape {
 
     public Square(final int x, final int y, final int length) {
         super(x, y);
-        rectangle = new Rectangle(x, y, length, length);
+        rectangle = new Rectangle(0, 0, length, length);
     }
 
     public int getLength() {

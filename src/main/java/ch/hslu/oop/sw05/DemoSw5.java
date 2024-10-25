@@ -60,33 +60,33 @@ public class DemoSw5 {
 
         // Test Lead
         Lead lead = new Lead();
-        LOGGER.info("Test if lead is solid -> result: {}", lead.getStateOfMatter(100));
-        LOGGER.info("Test if lead is liquid -> result: {}", lead.getStateOfMatter(1000));
-        LOGGER.info("Test if lead is gas -> result: {}", lead.getStateOfMatter(2000));
+        LOGGER.info("Test if lead is solid -> result: {}", lead.evaluateState(100));
+        LOGGER.info("Test if lead is liquid -> result: {}", lead.evaluateState(1000));
+        LOGGER.info("Test if lead is gas -> result: {}", lead.evaluateState(2000));
 
         LOGGER.info("---------------------------------------------------------");
 
         // Test Mercury
         Mercury mercury = new Mercury();
-        LOGGER.info("Test if mercury is solid -> result: {}", mercury.getStateOfMatter(-100));
-        LOGGER.info("Test if mercury is liquid -> result: {}", mercury.getStateOfMatter(100));
-        LOGGER.info("Test if mercury is gas -> result: {}", mercury.getStateOfMatter(1000));
+        LOGGER.info("Test if mercury is solid -> result: {}", mercury.evaluateState(-100));
+        LOGGER.info("Test if mercury is liquid -> result: {}", mercury.evaluateState(100));
+        LOGGER.info("Test if mercury is gas -> result: {}", mercury.evaluateState(1000));
 
         LOGGER.info("---------------------------------------------------------");
 
         // Test Oxygen
         Oxygen oxygen = new Oxygen();
-        LOGGER.info("Test if oxygen is solid -> result: {}", oxygen.getStateOfMatter(-300));
-        LOGGER.info("Test if oxygen is liquid -> result: {}", oxygen.getStateOfMatter(-200));
-        LOGGER.info("Test if oxygen is gas -> result: {}", oxygen.getStateOfMatter(-100));
+        LOGGER.info("Test if oxygen is solid -> result: {}", oxygen.evaluateState(-300));
+        LOGGER.info("Test if oxygen is liquid -> result: {}", oxygen.evaluateState(-200));
+        LOGGER.info("Test if oxygen is gas -> result: {}", oxygen.evaluateState(-100));
 
         LOGGER.info("---------------------------------------------------------");
 
         // Test Nitrogen
         Nitrogen nitrogen = new Nitrogen();
-        LOGGER.info("Test if nitrogen is solid -> result: {}", nitrogen.getStateOfMatter(-250));
-        LOGGER.info("Test if nitrogen is liquid -> result: {}", nitrogen.getStateOfMatter(-200));
-        LOGGER.info("Test if nitrogen is gas -> result: {}", nitrogen.getStateOfMatter(-150));
+        LOGGER.info("Test if nitrogen is solid -> result: {}", nitrogen.evaluateState(-250));
+        LOGGER.info("Test if nitrogen is liquid -> result: {}", nitrogen.evaluateState(-200));
+        LOGGER.info("Test if nitrogen is gas -> result: {}", nitrogen.evaluateState(-150));
 
         LOGGER.info("---------------------------------------------------------");
         LOGGER.info("");
