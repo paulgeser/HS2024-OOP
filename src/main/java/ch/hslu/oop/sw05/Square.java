@@ -26,5 +26,4 @@ public class Square extends Shape {
     public int getArea() {
         return rectangle.getArea();
     }
-
 }
