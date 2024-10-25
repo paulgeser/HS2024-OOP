@@ -2,15 +2,8 @@ package ch.hslu.oop.sw05;
 
 public class Nitrogen extends ChemicalElement {
 
-    private final double freezingPoint = -210.0;
-    private final double boilingPoint = -196.0;
-
     public Nitrogen() {
-        super("Nitrogen");
+        super("Nitrogen", -210.0, -196.0);
     }
 
-    @Override
-    public String getStateOfMatter(final double temperature) {
-        return this.evaluateState(temperature, this.freezingPoint, this.boilingPoint);
-    }
 }

@@ -1,19 +1,21 @@
 package ch.hslu.oop.sw05;
 
 public abstract class ChemicalElement {
-    protected String name;
+    private final String name;
+    private final double freezingPoint;
+    private final double boilingPoint;
 
-    public ChemicalElement(final String name) {
+    public ChemicalElement(final String name, double freezingPoint, double boilingPoint) {
         this.name = name;
+        this.freezingPoint = freezingPoint;
+        this.boilingPoint = boilingPoint;
     }
 
     public String getName() {
         return name;
     }
 
-    public abstract String getStateOfMatter(double temperature);
-
-    protected String evaluateState(final double temperature, final double freezingPoint, final double boilingPoint) {
+    protected String evaluateState(final double temperature) {
         if (temperature <= freezingPoint) {
             return "Solid";
         } else if (temperature < boilingPoint) {

@@ -42,12 +42,11 @@ public class Point {
     }
 
     public void moveRelative(double angle, double magnitude) {
-        int deltaX = (int) (magnitude * Math.cos(angle));
-        int deltaY = (int) (magnitude * Math.sin(angle));
+        int deltaX = (int) Math.round(magnitude * Math.cos(angle));
+        int deltaY = (int) Math.round(magnitude * Math.sin(angle));
         this.x += deltaX;
         this.y += deltaY;
     }
-
 
     public int getQuadrant() {
         if (x == 0 || y == 0) {
