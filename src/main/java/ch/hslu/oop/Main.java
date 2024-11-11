@@ -18,6 +18,7 @@ package ch.hslu.oop;
 import ch.hslu.oop.sw03.Iteration;
 import ch.hslu.oop.sw05.DemoSw5;
 import ch.hslu.oop.sw06.DemoShape;
+import ch.hslu.oop.sw09.ScannerDemo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -59,7 +60,10 @@ public final class Main {
         /*DemoSw5 demo = new DemoSw5();
         demo.runDemo();*/
 
-        DemoShape demoShape = new DemoShape();
-        demoShape.runDemo();
+        /*DemoShape demoShape = new DemoShape();
+        demoShape.runDemo();*/
+
+        ScannerDemo scannerDemo = new ScannerDemo();
+        scannerDemo.tryScanner();
     }
 }
