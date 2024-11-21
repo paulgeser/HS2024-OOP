@@ -18,7 +18,7 @@ package ch.hslu.oop;
 import ch.hslu.oop.sw03.Iteration;
 import ch.hslu.oop.sw05.DemoSw5;
 import ch.hslu.oop.sw06.DemoShape;
-import ch.hslu.oop.sw09.ScannerDemo;
+import ch.hslu.oop.sw10.temperature.ScannerDemo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
