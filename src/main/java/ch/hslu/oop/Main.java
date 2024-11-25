@@ -15,12 +15,11 @@
  */
 package ch.hslu.oop;
 
-import ch.hslu.oop.sw03.Iteration;
-import ch.hslu.oop.sw05.DemoSw5;
-import ch.hslu.oop.sw06.DemoShape;
-import ch.hslu.oop.sw10.temperature.ScannerDemo;
+import ch.hslu.oop.sw11.csv.CsvReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
 
 /**
  * Main-Applikation für {@link ch.hslu.oop}.
@@ -40,7 +39,7 @@ public final class Main {
      *
      * @param args Startargumente.
      */
-    public static void main(final String[] args) {
+    public static void main(final String[] args) throws IOException {
         /*LOGGER.info("{} befindet sich in Quadrant: {}", point, quadrant);*/
 
         LOGGER.info("Welcome to OOP!");
@@ -63,7 +62,10 @@ public final class Main {
         /*DemoShape demoShape = new DemoShape();
         demoShape.runDemo();*/
 
-        ScannerDemo scannerDemo = new ScannerDemo();
-        scannerDemo.tryScanner();
+        /*ScannerDemo scannerDemo = new ScannerDemo();
+        scannerDemo.tryScanner();*/
+
+        CsvReader reader = new CsvReader();
+        reader.readCsvFile();
     }
 }
