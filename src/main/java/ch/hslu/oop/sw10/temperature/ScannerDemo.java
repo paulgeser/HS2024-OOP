@@ -17,14 +17,14 @@ public class ScannerDemo {
     private static final Logger LOG = LoggerFactory.getLogger(ScannerDemo.class);
 
     // TemperatureCurve instance to manage and track temperature data
-    private TemperatureCurve temperatureCurve = new TemperatureCurve();
+    private final TemperatureCurve temperatureCurve = new TemperatureCurve();
 
     /**
      * Constructs a {@code ScannerDemo} instance and attaches a property change listener
      * to the {@code TemperatureCurve} to handle temperature-related events.
      */
     public ScannerDemo() {
-        this.temperatureCurve.addPropertyChangeListener(event -> handleTemperatureCurveEvent(event));
+        this.temperatureCurve.addPropertyChangeListener(this::handleTemperatureCurveEvent);
     }
 
     /**

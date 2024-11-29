@@ -63,8 +63,8 @@ public final class Main {
         /*DemoShape demoShape = new DemoShape();
         demoShape.runDemo();*/
 
-        /*ScannerDemo scannerDemo = new ScannerDemo();
-        scannerDemo.tryScanner();*/
+        ScannerDemo scannerDemo = new ScannerDemo();
+        scannerDemo.tryScanner();
 
         /*CsvReader reader = new CsvReader();
         reader.readCsvFile();*/

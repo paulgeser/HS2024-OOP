@@ -20,6 +20,9 @@ public class TemperatureCurve implements TemperatureCurceInterface {
     // A list of listeners for temperature change events.
     private final List<TemperatureChangeListener> changeListeners = new ArrayList<>();
 
+    private Temperature maxTemperature = null;
+    private Temperature minTemperature = null;
+
     /**
      * Adds a new temperature to the collection and notifies listeners if it changes
      * the maximum or minimum temperature.
@@ -27,8 +30,8 @@ public class TemperatureCurve implements TemperatureCurceInterface {
      * @param temperature the temperature to add
      */
     public void addTemperature(final Temperature temperature) {
-        this.checkForNewTemperatureLimit(temperature);
         this.temperatures.add(temperature);
+        this.checkForNewTemperatureLimit(temperature);
     }
 
     /**
@@ -44,7 +47,7 @@ public class TemperatureCurve implements TemperatureCurceInterface {
      * @return the count of temperatures
      */
     public int getCount() {
-        return this.getTemperatureList().size();
+        return this.temperatures.size();
     }
 
     /**
@@ -53,8 +56,7 @@ public class TemperatureCurve implements TemperatureCurceInterface {
      * @return the maximum temperature, or {@code null} if the collection is empty
      */
     public Temperature getMaxTemperature() {
-        if (this.getCount() == 0) return null;
-        return Collections.max(this.temperatures);
+        return this.maxTemperature;
     }
 
     /**
@@ -63,8 +65,7 @@ public class TemperatureCurve implements TemperatureCurceInterface {
      * @return the minimum temperature, or {@code null} if the collection is empty
      */
     public Temperature getMinTemperature() {
-        if (this.getCount() == 0) return null;
-        return Collections.min(this.temperatures);
+        return this.minTemperature;
     }
 
     /**
@@ -99,6 +100,8 @@ public class TemperatureCurve implements TemperatureCurceInterface {
     public void addPropertyChangeListener(final TemperatureChangeListener listener) {
         if (listener != null) {
             this.changeListeners.add(listener);
+        } else {
+            throw new NullPointerException("Given listener is null!");
         }
     }
 
@@ -110,6 +113,8 @@ public class TemperatureCurve implements TemperatureCurceInterface {
     public void removePropertyChangeListener(final TemperatureChangeListener listener) {
         if (listener != null) {
             this.changeListeners.remove(listener);
+        } else {
+            throw new NullPointerException("Given listener is null!");
         }
     }
 
@@ -131,14 +136,16 @@ public class TemperatureCurve implements TemperatureCurceInterface {
      * @param newTemperature the new temperature to check
      */
     private void checkForNewTemperatureLimit(Temperature newTemperature) {
-        Temperature maxTemperature = this.getMaxTemperature();
-        Temperature minTemperature = this.getMinTemperature();
-        if (maxTemperature == null || maxTemperature.getTemperatureCelcius() < newTemperature.getTemperatureCelcius()) {
-            TemperatureMaxEvent event = new TemperatureMaxEvent(this, maxTemperature, newTemperature);
+        if (this.maxTemperature == null || newTemperature.getTemperatureCelcius() > this.maxTemperature.getTemperatureCelcius()) {
+            Temperature previousMaxTemperature = this.maxTemperature;
+            this.maxTemperature = newTemperature;
+            TemperatureMaxEvent event = new TemperatureMaxEvent(this, previousMaxTemperature, newTemperature);
             this.firePropertyChangeEvent(event);
         }
-        if (minTemperature == null || minTemperature.getTemperatureCelcius() > newTemperature.getTemperatureCelcius()) {
-            TemperatureMinEvent event = new TemperatureMinEvent(this, minTemperature, newTemperature);
+        if (this.minTemperature == null || newTemperature.getTemperatureCelcius() < this.minTemperature.getTemperatureCelcius()) {
+            Temperature previousMinTemperature = this.minTemperature;
+            this.minTemperature = newTemperature;
+            TemperatureMinEvent event = new TemperatureMinEvent(this, previousMinTemperature, newTemperature);
             this.firePropertyChangeEvent(event);
         }
     }
@@ -153,6 +160,8 @@ public class TemperatureCurve implements TemperatureCurceInterface {
         return "TemperatureCurve{" +
                 "temperatures=" + temperatures +
                 ", changeListeners=" + changeListeners +
+                ", maxTemperature=" + maxTemperature +
+                ", minTemperature=" + minTemperature +
                 '}';
     }
 

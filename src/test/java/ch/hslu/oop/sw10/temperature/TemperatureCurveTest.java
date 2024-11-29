@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -61,6 +60,27 @@ class TemperatureCurveTest {
         assertEquals(temperature1, this.minTemperature);
         assertEquals(temperature2, this.maxTemperature);
         assertEquals(2, this.temperatureCurve.getCount());
+    }
+
+    @Test
+    void testAddFourTemperatures() {
+        // arrange
+        Temperature temperature1 = Temperature.createFromCelsius(20);
+        Temperature temperature2 = Temperature.createFromCelsius(23);
+        Temperature temperature3 = Temperature.createFromCelsius(22.99);
+        Temperature temperature4 = Temperature.createFromCelsius(19.8);
+
+
+        // act
+        this.temperatureCurve.addTemperature(temperature1);
+        this.temperatureCurve.addTemperature(temperature2);
+        this.temperatureCurve.addTemperature(temperature3);
+        this.temperatureCurve.addTemperature(temperature4);
+
+        // assert
+        assertEquals(temperature4, this.minTemperature);
+        assertEquals(temperature2, this.maxTemperature);
+        assertEquals(4, this.temperatureCurve.getCount());
     }
 
     void handleTemperatureCurveEvent(TemperatureEventInterface event) {
