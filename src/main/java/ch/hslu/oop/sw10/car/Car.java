@@ -161,7 +161,7 @@ public class Car implements Switchable {
      * Handles light-related property change events.
      * Logs the event with details about the light type.
      *
-     * @param event the light property change event
+     * @param event     the light property change event
      * @param lightType the type of light ("Front" or "Back")
      */
     private void handleLightEvent(PropertyChangeEvent event, String lightType) {

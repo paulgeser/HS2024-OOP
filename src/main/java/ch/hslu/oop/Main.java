@@ -15,7 +15,7 @@
  */
 package ch.hslu.oop;
 
-import ch.hslu.oop.sw10.temperature.ScannerDemo;
+import ch.hslu.oop.sw12.temperature.ScannerDemo;
 import ch.hslu.oop.sw11.csv.CsvReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
